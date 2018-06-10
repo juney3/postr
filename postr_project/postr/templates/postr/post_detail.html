@@ -1,0 +1,17 @@
+{% extends 'postr/base.html' %}
+
+  {% block content %}
+    <h2>{{ post.title }}</h2>
+    <h3>{{ post.author.user }} - {{ post.updated_at }}</h3>
+    <p>
+      {{post.body}}
+    </p>
+
+    <div class="comment-form">
+      {% if user.is_authenticated %}
+        {% block comment_form %}
+        {% endblock comment_form%}
+      {% endif%}
+    </div>
+
+  {% endblock content %}

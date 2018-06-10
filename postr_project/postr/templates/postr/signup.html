@@ -1,0 +1,12 @@
+{% extends 'postr/base.html' %}
+
+{% block content %}
+  <h2>Sign up for Post.r</h2>
+  <h4>You deserve it</h4>
+    <form method="POST">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Sign me up!</button>
+    </form>
+
+{% endblock %}

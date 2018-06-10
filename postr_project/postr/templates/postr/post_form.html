@@ -1,0 +1,11 @@
+{% extends 'postr/base.html' %}
+
+  {% block form %}
+    <h2>New Post</h2>
+      <form method="POST" class="post-form">
+        author: {{ user.username }}
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save">Save post</button>
+      </form>
+  {% endblock form %}
