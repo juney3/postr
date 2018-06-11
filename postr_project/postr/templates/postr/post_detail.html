@@ -9,9 +9,20 @@
 
     <div class="comment-form">
       {% if user.is_authenticated %}
-        {% block comment_form %}
-        {% endblock comment_form%}
+        <a href="{% url 'comment_create' post_id = post.id %}">+ > Add a comment</a>
       {% endif%}
+    </div>
+
+    <div class="comment-list">
+      {% if post.comments %}
+        {% for comment in post.comments %}
+          <ul>
+            <li>
+              {% include comment.html %}
+            </li>
+          </ul>
+        {% endfor %}
+      {% endif %}
     </div>
 
   {% endblock content %}

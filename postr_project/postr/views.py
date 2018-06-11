@@ -55,5 +55,10 @@ def comment_create(request, pk):
         if comment_form.is_valid():
             comment = comment_form.save(commit=False)
             comment.author = request.user.profile
+            comment.message = post_id
+            comment.
             comment = comment_form.save()
             return redirect('post_detail', pk=post_id)
+    else:
+        comment_form = CommentForm()
+    return render(request,  'postr/comment_form.html', {'form': form})

@@ -1,0 +1,15 @@
+<div class="comment-list">
+  <p>
+    {{ comment.body }}
+  </p>
+  <p>
+    {{ comment.author }} -- {{comment.created_at}}
+  </p>
+  <a href="{% url 'comment_create'">+ > Add a comment</a>
+
+  {% if comment.children %}
+    {% for comment in comment.children.all %}
+      {% include comment.html %}
+    {% endfor %}
+  {% endif %}
+</div>

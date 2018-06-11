@@ -1,10 +1,10 @@
-{% extends 'postr/post_detail.html' %}
+{% extends 'postr/base.html' %}
 
-  {% block comment_form %}
+  {% block content %}
     <h3>Add a comment to this post</h3>
       <form method="POST" class="comment-form">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit" class="save">Save comment</button>
       </form>
-  {% endblock comment_form %}
+  {% endblock content %}
